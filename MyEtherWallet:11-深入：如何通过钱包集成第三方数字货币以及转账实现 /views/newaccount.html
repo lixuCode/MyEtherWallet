@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>创建钱包</title>
+    <script src="/js/lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/css/wallet.css">
+</head>
+
+<body>
+    <div id="nav"></div>
+    <script>
+        $("#nav").load("/html/nav.html")
+    </script>
+
+    <div id="main">
+        <h1>创建一个新的账号</h1>
+        <form method="POST" action="/account/new">
+            <input type="text" placeholder="请输入密码" name="password">
+            <button type="submit">创建账号</button>
+        </form>
+    </div>
+</body>
+
+</html>

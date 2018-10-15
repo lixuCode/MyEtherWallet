@@ -1,0 +1,55 @@
+
+#main{
+    /*background-color: #8bc34a;*/
+    margin: 100px 50px 50px 50px;
+
+}
+.error{
+    color: red;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: #666;
+}
+body{
+    margin: 0px;
+}
+.global-color{
+    color: #0abc9c;
+}
+a[class=button]{
+    background-color: beige;
+    padding: 2px 10px;
+    border: 1px solid gray;
+}
+
+/*导航-------------------------------------------------------------------------------------------------------*/
+#nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: #0abc9c;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+#nav li{
+    display: inline-block;
+    margin: 10px 2px;
+}
+#nav ul{
+    padding: 0px;
+}
+#nav a{
+    padding: 10px;
+    font-size: 24px;
+}
+#nav-left{
+    margin-left: 20px;
+}
+#nav-right{
+    margin-right: 20px;
+}

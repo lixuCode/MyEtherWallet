@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>转账</title>
+    <script src="/js/lib/jquery-3.3.1.min.js"></script>
+    <script src="/js/lib/jquery.url.js"></script>
+    <script src="/js/wallet.js"></script>
+    <link rel="stylesheet" href="/css/wallet.css">
+</head>
+
+<body>
+    <div id="nav"></div>
+    <script>
+        $("#nav").load("/html/nav.html")
+    </script>
+
+    <div id="main">
+        <h1>发送以太币或者Token代币</h1>
+        <div id="transaction-first">
+
+            <input type="radio" id="unlock-account-type-privatekey" name="unlocktype" value="1">
+            <label for="unlock-account-type-privatekey">private key</label>
+            <br>
+            <input type="radio" id="unlock-account-type-keystore" name="unlocktype" value="2">
+            <label for="unlock-account-type-keystore">keystore</label>
+            <br>
+            <input type="radio" id="unlock-account-type-mnemonic" name="unlocktype" value="3">
+            <label for="unlock-account-type-mnemonic">Mnemonic Phrase</label>
+            <br>
+
+            <div id="unlock-account-privatekey" style="display: none">
+                <h3>请输入你的私钥</h3>
+                <textarea id="input-privatekey" rows="3"></textarea>
+                <br>
+                <button onclick="unlockAccountWithPrivatekey()">解锁</button>
+            </div>
+
+            <div id="unlock-account-keystore" style="display: none">
+                <h3>请选择你的keystore文件</h3>
+                <input type="file" id="unlock-accoutn-file">
+                <br>
+                <br>
+                <input type="password" id="unlock-account-password">
+                <br>
+                <br>
+                <button onclick="unlockAccountWithKeystore()">解锁</button>
+            </div>
+
+            <div id="unlock-account-mnemonic" style="display: none">
+                <h3>请输入你的助记词</h3>
+                <textarea id="input-mnemonic" rows="3"></textarea>
+                <br>
+                <button onclick="unlockAccountWithMnemonic()">解锁</button>
+            </div>
+        </div>
+
+        <div id="transaction-second" style="display: none">
+            <div id="send-transaction">
+                <form id="send-transaction-form">
+                    <div>
+                        <span>对方地址</span>
+                        <input type="text" name="toaddress">
+                    </div>
+                    <div>
+                        <span>发送金额</span>
+                        <input type="text" name="number">
+                        <select id="send-transaction-token-type">
+                            <option value="1">ETH</option>
+                            <option value="2" id="send-transaction-token-symbol"></option>
+                        </select>
+                    </div>
+                    <input name="fromaddress" hidden="hidden">
+                    <input name="privatekey" hidden="hidden">
+                    <button type="submit">发送交易</button>
+                </form>
+            </div>
+
+            <div id="account-info">
+                <div>
+                    <span>账户地址：</span>
+                    <span id="account-address"></span>
+                </div>
+                <div>
+                    <span>账户余额：</span>
+                    <span id="account-balance"></span>
+                </div>
+            </div>
+            <br>
+            
+            <div id="transaction-complate" style="display: none">
+                <span>交易hash</span>
+                <span id="transaction-complate-hash"></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
